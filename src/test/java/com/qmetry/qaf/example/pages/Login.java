@@ -31,7 +31,6 @@ public class Login extends StepsLibrary {
 		Properties prop = new Properties();
 		InputStream input = new FileInputStream("resources/application.properties");
 		prop.load(input);
-		QAFTestBase.pause(1000);
 		emailAddress.sendKeys(prop.getProperty("username"));
 		password.sendKeys(prop.getProperty("password"));
 		clickOnElement(signIn);

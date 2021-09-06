@@ -15,3 +15,4 @@ Scenario: TC01.02
 	And sendKeys '${password}' into 'login.input.password'
 	And click on 'login.button.signIn'
 	And verify 'login.text.errorMessage1' text is 'Authentication failed.'
+	And verify 'login.text.errorMessage1' text is 'Test failed step'

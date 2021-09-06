@@ -17,6 +17,7 @@
 		<sourceVersion>1.8</sourceVersion>
 		<targetVersion>1.8</targetVersion>
 		<qaf.version>3.0.0</qaf.version>
+		<databind.version>2.12.5</databind.version>
 		<selenium.version>3.141.59</selenium.version>
 		<test.results.dir>test-results</test.results.dir>
 		<run.time>${maven.build.timestamp}</run.time>
@@ -51,7 +52,7 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.11.1</version>
+			<version>${databind.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.qmetry</groupId>
