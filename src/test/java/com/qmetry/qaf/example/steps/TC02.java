@@ -9,11 +9,8 @@ import com.qmetry.qaf.example.pages.Login;
 import com.qmetry.qaf.example.pages.Registration;
 
 public class TC02 extends StepsLibrary {
-
-	HomePage homePage = new HomePage();
-	Login loginPage = new Login();
+	
 	Registration registrationPage = new Registration();
-	Properties prop = new Properties();
 
 	@QAFTestStep(description = "fill user data for creating an account based on {data}")
 	public void fillUserDataForCreatingAnAccountBasedOn(Object data) throws Exception {
@@ -31,6 +28,9 @@ public class TC02 extends StepsLibrary {
 		registrationPage.selectGender(title);
 		registrationPage.setFirstName(firstName);
 		registrationPage.setLastName(lastName);
+		registrationPage.setEmail(email);
+		registrationPage.setPassword(password);
+		registrationPage.setDateOfBirth(dob);
 	}
   
 }

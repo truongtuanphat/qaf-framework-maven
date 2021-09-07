@@ -4,10 +4,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 import org.hamcrest.Matchers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
@@ -39,7 +42,7 @@ public class StepsLibrary extends WebDriverBaseTestPage<WebDriverTestPage> {
 		clickOnElement(we);
 	}
 	
-	public static void performTextValidation(String actual, String expected) {
+	public void performTextValidation(String actual, String expected) {
 		Validator.verifyThat(actual, Matchers.equalTo(expected));
 	}
 
@@ -72,11 +75,21 @@ public class StepsLibrary extends WebDriverBaseTestPage<WebDriverTestPage> {
 		} while (i < DEFAULT_TIMEOUT);
 	}
 	
-	public static void clickOnElement(QAFExtendedWebElement ele) throws Exception {
+	public void clickOnElement(QAFExtendedWebElement ele) {
 		try {
 			ele.click();
 		} catch (Exception e) {
 			ele.executeScript("click()");
+		}
+	}
+	
+	public void selectByValueContains(QAFWebElement qafWESelectTag,String value) {
+		List<WebElement> listOption = qafWESelectTag.findElements(By.tagName("option"));
+		for (WebElement option : listOption) {
+			if (option.getText().contains(value)) {
+				clickOnElement((QAFWebElement)option);
+				break;
+			}
 		}
 	}
 	
@@ -101,7 +114,7 @@ public class StepsLibrary extends WebDriverBaseTestPage<WebDriverTestPage> {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static HashMap<String, Object> jsonObjectToHashMap(Object data, String objectName) throws Exception {
+	public HashMap<String, Object> jsonObjectToHashMap(Object data, String objectName) throws Exception {
 		JsonObject jsonObject = new Gson().toJsonTree(data).getAsJsonObject();
 		HashMap<String, Object> result;
 		HashMap<String, Object> resultBasicInfo;
@@ -113,7 +126,7 @@ public class StepsLibrary extends WebDriverBaseTestPage<WebDriverTestPage> {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static Beneficiary[] jsonObjectToBeneficiaryArray(Object data) throws Exception {
+	public Beneficiary[] jsonObjectToBeneficiaryArray(Object data) throws Exception {
 		JsonObject jsonObject = new Gson().toJsonTree(data).getAsJsonObject();
 		HashMap<String, Object> result;
 		ObjectMapper mapper = new ObjectMapper();
@@ -123,7 +136,7 @@ public class StepsLibrary extends WebDriverBaseTestPage<WebDriverTestPage> {
 		return mapper.readValue(jsonArrBeneficiary.toString(), Beneficiary[].class);
 	}
 	
-	public static String tryToGetHashMapValue(HashMap<String, Object> resultBasicInfo, String key) {
+	public String tryToGetHashMapValue(HashMap<String, Object> resultBasicInfo, String key) {
 		try {
 			return resultBasicInfo.get(key).toString();
 		} catch (Exception e) {

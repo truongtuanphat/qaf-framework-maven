@@ -5,7 +5,7 @@ Feature: Registration Feature
 Scenario Outline: TC02.01
 	Given direct to home page
 	When click on button with value 'Sign in'
-	And sendKeys '${username}' into 'login.input.createEmailAddress'
+	And sendKeys '${emailAddress}' into 'login.input.createEmailAddress'
 	And click on 'login.button.createAnAccount'
 	And fill user data for creating an account based on '<UserInfo>'
     Examples: {'datafile':'resources/data/TC02.json'}
