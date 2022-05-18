@@ -1,7 +1,6 @@
 package com.qmetry.qaf.example.steps;
 
 import java.util.HashMap;
-import java.util.Properties;
 
 import com.qmetry.qaf.automation.step.QAFTestStep;
 import com.qmetry.qaf.example.pages.HomePage;
@@ -22,8 +21,8 @@ public class TC02 extends StepsLibrary {
 		String email = tryToGetHashMapValue(resultInfo, "email");
 		String password = tryToGetHashMapValue(resultInfo, "password");
 		String dob = tryToGetHashMapValue(resultInfo, "dob");
-		String newsletter = tryToGetHashMapValue(resultInfo, "newsletter");
-		String receiveOffers = tryToGetHashMapValue(resultInfo, "receiveOffers");
+		boolean newsletter = Boolean.parseBoolean(tryToGetHashMapValue(resultInfo, "newsletter"));
+		boolean receiveOffers = Boolean.parseBoolean(tryToGetHashMapValue(resultInfo, "receiveOffers"));
 
 		registrationPage.selectGender(title);
 		registrationPage.setFirstName(firstName);

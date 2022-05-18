@@ -5,3 +5,5 @@ registration.input.lastName=id=customer_lastname
 registration.input.email=id=email
 registration.input.password=id=passwd
 registration.select.dobForm=xpath=//label[text()='Date of Birth']//ancestor::div[@class='form-group']
+registration.checkbox.newsletter=xpath=//label[text()='Sign up for our newsletter!']//preceding-sibling::div//span
+registration.checkbox.receiveOffers=xpath=//label[text()='Receive special offers from our partners!']//preceding-sibling::div//span

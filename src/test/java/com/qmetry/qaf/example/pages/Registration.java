@@ -32,6 +32,12 @@ public class Registration extends StepsLibrary {
 	@FindBy(locator = "registration.select.dobForm")
 	QAFWebElement dobForm;
 	
+	@FindBy(locator = "registration.checkbox.newsletter")
+	QAFWebElement checkboxNewsletter;
+	
+	@FindBy(locator = "registration.checkbox.receiveOffers")
+	QAFWebElement checkboxReceiveOffers;
+	
 	public void selectGender(String gender) throws IOException {
 		if (gender.equalsIgnoreCase("Mr."))
 			clickOnElement(genderMr);
@@ -100,9 +106,13 @@ public class Registration extends StepsLibrary {
 				month = "December";
 				break;
 		}
-		
 		new Select(this.dobForm.findElement(By.id("days"))).selectByValue(day);
 		selectByValueContains((QAFWebElement)dobForm.findElement(By.id("months")), month);
 		new Select(this.dobForm.findElement(By.id("years"))).selectByValue(year);
+	}
+	
+	public void checkNewsletter(boolean isChecked) {
+		if (isChecked && !checkboxNewsletter.getAttribute("class").contains("checked"))
+			clickOnElement(checkboxNewsletter);
 	}
 }

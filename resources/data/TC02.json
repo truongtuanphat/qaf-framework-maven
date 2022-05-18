@@ -8,8 +8,8 @@
 				"email": "TC02@gmail.com",
 				"password": "testtest",
 				"dob": "12/10/1997",
-				"newsletter": "yes",
-				"receiveOffers": "yes"
+				"newsletter": true,
+				"receiveOffers": true
 			},
 			"AddressInformation": {
 				"firstName": "TC02",

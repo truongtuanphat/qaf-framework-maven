@@ -1,6 +1,5 @@
 package com.qmetry.qaf.example.steps;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -10,7 +9,6 @@ import org.hamcrest.Matchers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
@@ -24,7 +22,7 @@ import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
 import com.qmetry.qaf.automation.ui.webdriver.QAFWebElement;
 import com.qmetry.qaf.automation.util.Validator;
 import com.qmetry.qaf.example.modules.Beneficiary;
-
+			
 public class StepsLibrary extends WebDriverBaseTestPage<WebDriverTestPage> {
 
 	private final int DEFAULT_TIMEOUT = 20;
@@ -36,8 +34,15 @@ public class StepsLibrary extends WebDriverBaseTestPage<WebDriverTestPage> {
 			"#fff7dd, #ffdbdb", "#f5d5ff, #dbe1ff", "#d9ffe6, #fff6e2, #ffe2e2" };
 	
 	@QAFTestStep(description = "click on button with value {value}")
-	public void clickOnButtonWithValue(String value) throws IOException {
+	public void clickOnButtonWithValue(String value) {
 		String xpath = String.format("//*[normalize-space(text())='%s']", value);
+		QAFWebElement we = driver.findElement(By.xpath(xpath));
+		clickOnElement(we);
+	}
+	
+	@QAFTestStep(description = "tick on checkbox {checkboxWE}")
+	public void tickOnCheckbox(String checkboxWE) {
+		String xpath = String.format("//*[normalize-space(text())='%s']", checkboxWE);
 		QAFWebElement we = driver.findElement(By.xpath(xpath));
 		clickOnElement(we);
 	}
@@ -85,12 +90,15 @@ public class StepsLibrary extends WebDriverBaseTestPage<WebDriverTestPage> {
 	
 	public void selectByValueContains(QAFWebElement qafWESelectTag,String value) {
 		List<WebElement> listOption = qafWESelectTag.findElements(By.tagName("option"));
+		String valuesInList = "";
 		for (WebElement option : listOption) {
-			if (option.getText().contains(value)) {
+			if (option.getText().toLowerCase().contains(value.toLowerCase())) {
 				clickOnElement((QAFWebElement)option);
-				break;
+				return;
 			}
+			valuesInList += option.getText().trim() + ";";
 		}
+		Validator.verifyThat(value + " not found in list", Matchers.equalTo(valuesInList.substring(0, valuesInList.length() - 1)));
 	}
 	
 	public void setColor(QAFWebElement we) {

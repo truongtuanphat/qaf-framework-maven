@@ -5,7 +5,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import com.qmetry.qaf.automation.core.QAFTestBase;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.support.locators.RelativeLocator;
+
 import com.qmetry.qaf.automation.ui.annotations.FindBy;
 import com.qmetry.qaf.automation.ui.webdriver.QAFWebElement;
 import com.qmetry.qaf.example.steps.StepsLibrary;
