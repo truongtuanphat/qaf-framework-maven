@@ -33,14 +33,14 @@ public class StepsLibrary extends WebDriverBaseTestPage<WebDriverTestPage> {
 	private String[] colorList = { "#ffe6e6, #f7e6fa", "#ccf2ff, #e3d6ff", "#dbfff5, #fffadd",
 			"#fff7dd, #ffdbdb", "#f5d5ff, #dbe1ff", "#d9ffe6, #fff6e2, #ffe2e2" };
 	
-	@QAFTestStep(description = "click on button with value {value}")
+	@QAFTestStep(description = "I click on button with value {value}")
 	public void clickOnButtonWithValue(String value) {
 		String xpath = String.format("//*[normalize-space(text())='%s']", value);
 		QAFWebElement we = driver.findElement(By.xpath(xpath));
 		clickOnElement(we);
 	}
 	
-	@QAFTestStep(description = "tick on checkbox {checkboxWE}")
+	@QAFTestStep(description = "I tick on checkbox {checkboxWE}")
 	public void tickOnCheckbox(String checkboxWE) {
 		String xpath = String.format("//*[normalize-space(text())='%s']", checkboxWE);
 		QAFWebElement we = driver.findElement(By.xpath(xpath));

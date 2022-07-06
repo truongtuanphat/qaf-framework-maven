@@ -18,20 +18,20 @@ public class TC01 extends StepsLibrary{
 	Login loginPage = new Login();
 	Properties prop = new Properties();
 
-	@QAFTestStep(description = "login into system")
+	@QAFTestStep(description = "I login into system")
 	public void loginIntoSystem() throws IOException {
 		directToHomePage();
 		homePage.clickOnSignInButton();
 		loginPage.login();
 	}
 	
-	@QAFTestStep(description = "verify that successfully login")
+	@QAFTestStep(description = "I verify that successfully login")
 	public void verifyThatSuccessfullyLogin() throws IOException {
 		if (!loginPage.userNameIsDisplayed())
 			Assert.fail("Login failed");;
 	}
 	
-	@QAFTestStep(description = "direct to home page")
+	@QAFTestStep(description = "I direct to home page")
 	public void directToHomePage() throws IOException {
 		InputStream input = new FileInputStream("resources/application.properties");
 		prop.load(input);
@@ -39,7 +39,12 @@ public class TC01 extends StepsLibrary{
 		driver.manage().window().maximize();
 	}
 	
-	@QAFTestStep(description = "logout")
+	@QAFTestStep(description = "I verify error message {error} is displayed in login page")
+	public void iVerifyErrorMessageIsDisplayedInLoginPage(String error) throws IOException {
+		loginPage.verifyErrorMessage(error);;
+	}
+	
+	@QAFTestStep(description = "I logout")
 	public void logout() throws IOException {
 		loginPage.signOut();
 	}

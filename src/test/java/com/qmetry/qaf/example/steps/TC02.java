@@ -11,7 +11,7 @@ public class TC02 extends StepsLibrary {
 	
 	Registration registrationPage = new Registration();
 
-	@QAFTestStep(description = "fill user data for creating an account based on {data}")
+	@QAFTestStep(description = "I fill user data for creating an account based on {data}")
 	public void fillUserDataForCreatingAnAccountBasedOn(Object data) throws Exception {
 		HashMap<String, Object> resultInfo = null;
 		resultInfo = jsonObjectToHashMap(data, "PersonalInformation");

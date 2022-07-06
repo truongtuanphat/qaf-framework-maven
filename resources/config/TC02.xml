@@ -11,5 +11,4 @@
 			<class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory" />
 		</classes>
 	</test>
-
 </suite>
