@@ -17,6 +17,7 @@
 		<sourceVersion>1.8</sourceVersion>
 		<targetVersion>1.8</targetVersion>
 		<qaf.version>3.0.0</qaf.version>
+		<compiler.version>3.8.1</compiler.version>
 		<databind.version>2.12.5</databind.version>
 		<selenium.version>3.141.59</selenium.version>
 		<test.results.dir>test-results</test.results.dir>
@@ -71,6 +72,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${compiler.version}</version>
 				<configuration>
 					<compilerVersion>${sourceVersion}</compilerVersion>
 					<source>${sourceVersion}</source>
