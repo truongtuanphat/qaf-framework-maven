@@ -13,7 +13,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<testSuiteFile>resources/config/TC02.xml</testSuiteFile>
+		<testSuiteFile>resources/config/TC01.xml</testSuiteFile>
 		<sourceVersion>1.8</sourceVersion>
 		<targetVersion>1.8</targetVersion>
 		<qaf.version>3.0.0</qaf.version>
