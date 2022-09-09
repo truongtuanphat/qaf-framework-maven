@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TC001" verbose="0">
+	<parameter name="username" value="invalidUserName@gmail.com"/>
+	<parameter name="password" value="invalidPassword"/>
+	<test name="TC001" enabled="true">
+		<groups>
+			<run>
+				<include name="@TC001" />
+			</run>
+		</groups>
+		<classes>
+			<class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory" />
+		</classes>
+	</test>
+
+</suite>	

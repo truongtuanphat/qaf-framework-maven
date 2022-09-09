@@ -13,10 +13,10 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<testSuiteFile>resources/config/TC01.xml</testSuiteFile>
+		<testSuiteFile>resources/config/Regression.xml</testSuiteFile>
 		<sourceVersion>1.8</sourceVersion>
 		<targetVersion>1.8</targetVersion>
-		<qaf.version>3.0.0</qaf.version>
+		<qaf.version>3.1.0</qaf.version>
 		<compiler.version>3.8.1</compiler.version>
 		<databind.version>2.12.5</databind.version>
 		<selenium.version>3.141.59</selenium.version>
