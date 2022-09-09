@@ -15,9 +15,9 @@ import org.openqa.selenium.WebElement;
 import com.qmetry.qaf.automation.ui.annotations.FindBy;
 import com.qmetry.qaf.automation.ui.webdriver.QAFWebElement;
 import com.qmetry.qaf.automation.util.Validator;
-import com.qmetry.qaf.example.steps.StepsLibrary;
+import com.qmetry.qaf.example.steps.CommonSteps;
 
-public class Login extends StepsLibrary {
+public class Login extends CommonSteps {
 	
 	@FindBy(locator = "login.input.emailAddress")
 	QAFWebElement emailAddress;

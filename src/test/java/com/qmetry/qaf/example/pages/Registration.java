@@ -7,9 +7,9 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.qmetry.qaf.automation.ui.annotations.FindBy;
 import com.qmetry.qaf.automation.ui.webdriver.QAFWebElement;
-import com.qmetry.qaf.example.steps.StepsLibrary;
+import com.qmetry.qaf.example.steps.CommonSteps;
 
-public class Registration extends StepsLibrary {
+public class Registration extends CommonSteps {
 	
 	@FindBy(locator = "registration.radio.title.mr")
 	QAFWebElement genderMr;
